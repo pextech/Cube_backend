@@ -1,0 +1,78 @@
+{
+  "name": "cube_backend",
+  "version": "1.0.0",
+  "description": "ari cube augmented reality innovation",
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/.bin/mocha --require @babel/register 'src/**/**test.js'",
+    "start": "node dist/server.js",
+    "start:dev": "./node_modules/.bin/nodemon --exec babel-node src/server.js",
+    "lint": "./node_modules/.bin/eslint . --ext .js --fix",
+    "build": "babel ./src --out-dir dist",
+    "clean": "rimraf dist",
+    "postinstall": "npm-run-all clean build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KitechRW/cube_backend.git"
+  },
+  "keywords": [
+    "ari",
+    "cube",
+    "3d"
+  ],
+  "author": "kitech engineers",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KitechRW/cube_backend/issues"
+  },
+  "homepage": "https://github.com/KitechRW/cube_backend#readme",
+  "dependencies": {
+    "@sendgrid/mail": "^7.4.1",
+    "body-parser": "^1.19.0",
+    "core-js": "^3.8.2",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "helmet": "^4.3.1",
+    "http-status": "^1.5.0",
+    "joi": "^17.3.0",
+    "mailgun-js": "^0.22.0",
+    "mongoose": "^5.11.10",
+    "morgan": "^1.10.0",
+    "mysql": "^2.18.1",
+    "nodemailer-express-handlebars": "^4.0.0",
+    "nodemon": "^2.0.6",
+    "npm-run-all": "^4.1.5",
+    "regenerator-runtime": "^0.13.7",
+    "winston": "^3.3.3"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.12.10",
+    "@babel/core": "^7.12.10",
+    "@babel/node": "^7.12.10",
+    "@babel/preset-env": "^7.12.11",
+    "@babel/register": "^7.12.10",
+    "chai": "^4.2.0",
+    "chai-http": "^4.3.0",
+    "eslint": "^7.17.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-config-prettier": "^7.1.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-prettier": "^3.3.1",
+    "mocha": "^8.2.1",
+    "prettier": "^2.2.1",
+    "rimraf": "^3.0.2"
+  },
+  "nodemonConfig": {
+    "exec": "npm run start:dev",
+    "watch": [
+      "src/*"
+    ],
+    "ignore": [
+      "**/__tests__/**",
+      "*.test.js",
+      "*.spec.js"
+    ]
+  }
+}
