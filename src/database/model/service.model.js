@@ -1,31 +1,27 @@
-import mongoose from 'mongoose';
+import { Schema, model } from 'mongoose';
 
-/**
- * User Schema
- */
-const userSchema = new mongoose.Schema(
+const serviceSchema = new Schema(
   {
-    fullname: {
+    userId: {
+      type: String,
+      required: true,
+      ref: 'User',
+    },
+    name: {
       type: String,
       required: true,
     },
-    email: {
+    price: {
+      type: Number,
+      required: true,
+    },
+    billingCycle: {
       type: String,
       required: true,
-      unique: true,
     },
-    phone: {
+    descriptions: {
       type: String,
       required: true,
-      default: ' ',
-    },
-    password: {
-      type: String,
-    },
-    role: {
-      type: String,
-      required: true,
-      default: ' ',
     },
   },
   {
@@ -38,4 +34,6 @@ const userSchema = new mongoose.Schema(
   },
 );
 
-export default mongoose.model('User', userSchema);
+const Service = model('Service', serviceSchema);
+
+export default Service;

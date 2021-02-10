@@ -1,1 +1,8 @@
 node_modules
+.env
+.nyc_output/*
+routes.http
+coverage/
+routes.rest
+dist/
+package-lock.json

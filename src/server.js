@@ -1,24 +1,27 @@
 /* eslint-disable import/no-mutable-exports */
-import "core-js/stable";
-import "regenerator-runtime/runtime";
-import mongoose from "mongoose";
-import app from "./app";
-import logger from "./config/logger.config";
-import config from "./config/config";
+import 'core-js/stable';
+import 'regenerator-runtime/runtime';
+import mongoose from 'mongoose';
+import app from './app';
+import logger from './config/logger.config';
+import config from './config/config';
 
-const PORT = process.env.PORT || config.port;
+const PORT =
+  process.env.NODE_ENV !== 'test' ? process.env.PORT : 5000;
 
-const server = app.listen(PORT, () => {
-  mongoose.connect(config.mongoose.url, config.mongoose.options).then(() => {
-    logger.info("Connected to MongoDB");
-    logger.info(`Listening to port ${PORT}`);
-  });
+const server = app.listen(PORT, async () => {
+  mongoose
+    .connect(config.mongoose.url, config.mongoose.options)
+    .then(() => {
+      logger.info('Connected to MongoDB');
+      logger.info(`Listening to port ${PORT}`);
+    });
 });
 
 const exitHandler = () => {
   if (server) {
     server.close(() => {
-      logger.info("Server closed");
+      logger.info('Server closed');
       process.exit(1);
     });
   } else {
@@ -31,11 +34,11 @@ const unexpectedErrorHandler = (error) => {
   exitHandler();
 };
 
-process.on("uncaughtException", unexpectedErrorHandler);
-process.on("unhandledRejection", unexpectedErrorHandler);
+process.on('uncaughtException', unexpectedErrorHandler);
+process.on('unhandledRejection', unexpectedErrorHandler);
 
-process.on("SIGTERM", () => {
-  logger.info("SIGTERM received");
+process.on('SIGTERM', () => {
+  logger.info('SIGTERM received');
   if (server) {
     server.close();
   }

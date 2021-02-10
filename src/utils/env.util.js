@@ -35,7 +35,8 @@ exports.getFloat = (variable, defaultVal = NaN) =>
  *
  * @returns {boolean}
  */
-exports.isDev = () => /development/i.test(exports.getString("NODE_ENV"));
+exports.isDev = () =>
+  /development/i.test(exports.getString('NODE_ENV'));
 
 /** Returns true if we're in test mode */
-exports.isTest = () => /test/i.test(exports.getString("NODE_ENV"));
+exports.isTest = () => /test/i.test(exports.getString('NODE_ENV'));

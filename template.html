@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <mate charest="utf-8" />
+        <title>Hello world!</title>
+    </head>
+    <body>
+        <div style="margin: 00px;">
+            <img src="https://avatars.githubusercontent.com/u/62645645?s=200&v=4" style="width: 150px;">
+            <div style="float: right; padding: 20px;  color: gray; font-weight: 900; text-align: justify">
+                <div>company: kitech</div>
+                <div>email: info@kitech.rw</div>
+                <div>phone: (+250) 784826428</div>
+                <div>address: Kigali City, Rwanda</div>
+            </div>
+        </div>
+        <h2 style="width: 70%;  margin: auto; text-align: center; background: #eee; border-bottom: 1px solid #ddd;">Invoice</h2>
+        <div style="padding: 20px; margin-bottom: 00px; padding-bottom: 00;" >
+            <table style="width: 70%; margin: auto;" border="3">
+                <tbody>
+                    <tr>
+                        <th style="background-image: linear-gradient(135deg, #fdfcfb 0%, #dcdcdc 100%);"> Order Id </th>
+                        <th style="background-image: linear-gradient(135deg, #fdfcfb 0%, #dcdcdc 100%);"> Due Date </th>
+                        <th style="background-image: linear-gradient(135deg, #fdfcfb 0%, #dcdcdc 100%);"> Amount </th>
+                    </tr>
+                </tbody>
+                <tr>
+                    {{#each users}}
+                    <td>{{this.orderId}}</td>
+                    <td>{{this.due_date}}</td>
+                    <td>{{this.amount}}</td>
+                    {{/each}}
+                </tr>
+            </table>
+        </div>
+
+    </body>
+</html>

@@ -1,7 +1,10 @@
 {
     "env": {
         "browser": true,
-        "es2021": true
+        "es2021": true,
+        "mocha": true,
+        "node": true,
+        "commonjs": true
     },
     "extends": [
         "airbnb-base",
@@ -12,5 +15,9 @@
         "sourceType": "module"
     },
     "rules": {
+        "consistent-return": 0,
+        "no-undef": 0,
+        "import/no-extraneous-dependencies": 0,
+        "no-underscore-dangle": 0
     }
 }
