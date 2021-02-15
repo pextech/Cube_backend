@@ -6,17 +6,19 @@ import bcrypt from 'bcrypt';
  */
 class BcryptUtil {
   /**
-   * * @param  {string} password
-   * * @returns {string} generate a password
+   * * Generated password
+   * @param  {string} password string
+   * @returns {string} string
    */
   static hashPassword(password) {
     return bcrypt.hashSync(password, Number(process.env.SALT_ROUNDS));
   }
 
   /**
-   * * @param  {string} plainPassword
-   * * @param  {string} hashPassword
-   * * @returns {boolean} compare passwords
+   * * Compare passwords
+   * @param  {string} plainPassword string
+   * @param  {string} hashPassword string
+   * @returns {boolean} boolean
    */
   static comparePassword(plainPassword, hashPassword) {
     return bcrypt.compareSync(plainPassword, hashPassword);

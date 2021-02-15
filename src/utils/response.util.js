@@ -35,6 +35,13 @@ class ResponseUtil {
    */
   static send(res) {
     if (this.type === 'success') {
+      if (this.data === '') {
+        return res.status(this.statusCode).json({
+          status: this.statusCode,
+          message: this.message,
+        });
+      }
+
       return res.status(this.statusCode).json({
         status: this.statusCode,
         message: this.message,
@@ -45,6 +52,29 @@ class ResponseUtil {
       status: this.statusCode,
       message: this.message,
     });
+  }
+
+  /**
+   * * Handle success response
+   * @param  {integer} statusCode status code
+   * @param  {string} message success message
+   * @param  {object} data if no data, pass empty string
+   * @param  {object} res response
+   */
+  static handleSuccessResponse(statusCode, message, data, res) {
+    this.setSuccess(statusCode, message, data);
+    return this.send(res);
+  }
+
+  /**
+   * * Handle error response
+   * @param  {integer} statusCode status code
+   * @param  {string} message error message
+   * @param  {object} res response
+   */
+  static handleErrorResponse(statusCode, message, res) {
+    this.setError(statusCode, message, res);
+    return this.send(res);
   }
 }
 export default ResponseUtil;

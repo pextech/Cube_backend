@@ -3,20 +3,23 @@ import BcryptUtil from '../../utils/Bcrypt.util';
 const data = {
   users: [
     {
-      fullname: 'Tonton',
+      fullName: 'Tonton',
       email: 'admin@sample.com',
+      phoneNumber: '+250788558899',
       password: BcryptUtil.hashPassword(process.env.PASSWORD),
       role: 'Manager',
     },
     {
-      fullname: 'Maombi',
+      fullName: 'Maombi',
       email: 'maombi@test.com',
+      phoneNumber: '+250788558899',
       password: BcryptUtil.hashPassword(process.env.PASSWORD),
       role: 'Client',
     },
     {
-      fullname: 'Gatete',
+      fullName: 'Gatete',
       email: 'gatete@test.com',
+      phoneNumber: '+250788558899',
       password: BcryptUtil.hashPassword(process.env.PASSWORD),
       role: 'Manager',
     },

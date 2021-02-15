@@ -6,21 +6,50 @@ import TokenUtil from '../jwt.util';
 
 const objectId = id.Types.ObjectId();
 
+export const user = {
+  fullName: faker.name.findName(),
+  email: faker.internet.email(),
+  phoneNumber: '+250788445847',
+  companyName: faker.company.companyName(),
+  address: faker.address.city(),
+};
+
 const password = faker.internet.password();
 const newUser = {
   _id: objectId,
-  fullname: faker.name.findName(),
+  fullName: faker.name.findName(),
   email: faker.internet.email(),
   password: BcryptUtil.hashPassword(password),
+  phoneNumber: '+250788445847',
   role: 'Manager',
+  companyName: faker.company.companyName(),
+  address: faker.address.city(),
 };
 
 const notManager = {
   _id: '5fff2a57ab5f62aef78fe0b7',
-  fullname: faker.name.findName(),
+  fullName: faker.name.findName(),
   email: faker.internet.email(),
   password: BcryptUtil.hashPassword(password),
+  phoneNumber: '+250788445847',
   role: 'Client',
+  companyName: faker.company.companyName(),
+  address: faker.address.city(),
+};
+
+export const invalidCredentials = {
+  email: faker.internet.email(),
+  password: faker.internet.password(),
+};
+
+export const updatedUserData = {
+  email: user.email,
+  password: 'Pass1234?',
+};
+
+export const invalidUserData = {
+  email: faker.internet.email(),
+  password: 'Pass1234?',
 };
 
 export const loggedInToken = TokenUtil.generateToken(newUser);

@@ -4,5 +4,5 @@ node_modules
 routes.http
 coverage/
 routes.rest
-dist/
+dist
 package-lock.json
