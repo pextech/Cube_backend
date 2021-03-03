@@ -23,9 +23,9 @@ class AccountHelpers {
    */
   static async saveUser(user) {
     const savedUser = await UserSchema.create({
-      fullname: user.fullname,
+      fullName: user.fullName,
       email: user.email,
-      phone: user.phone,
+      phoneNumber: user.phoneNumber,
       role: user.role,
     });
     return savedUser;

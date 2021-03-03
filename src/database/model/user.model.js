@@ -5,7 +5,7 @@ import mongoose from 'mongoose';
  */
 const userSchema = new mongoose.Schema(
   {
-    fullname: {
+    fullName: {
       type: String,
       required: true,
     },
@@ -14,18 +14,42 @@ const userSchema = new mongoose.Schema(
       required: true,
       unique: true,
     },
-    phone: {
+    phoneNumber: {
       type: String,
       required: true,
-      default: ' ',
     },
     password: {
       type: String,
+      default: '',
     },
     role: {
       type: String,
       required: true,
-      default: ' ',
+      default: 'visitor',
+    },
+    companyName: {
+      type: String,
+      required: true,
+    },
+    address: {
+      type: String,
+      required: true,
+    },
+    linkedin: {
+      type: String,
+      default: '',
+    },
+    twitter: {
+      type: String,
+      default: '',
+    },
+    instagram: {
+      type: String,
+      default: '',
+    },
+    facebook: {
+      type: String,
+      default: '',
     },
   },
   {
